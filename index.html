@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plan trips, explore destinations, manage packing lists, and browse demo flight and hotel options.">
+  <title>WanderWise | Smart Travel Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="WanderWise home">
+      <span class="brand-icon">✈</span> WanderWise
+    </a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="main-nav" id="main-nav">
+      <a href="#home">Home</a>
+      <a href="#destinations">Destinations</a>
+      <a href="#planner">Plan a Trip</a>
+      <a href="#booking">Flights & Hotels</a>
+      <a href="#saved-trips">Saved Trips</a>
+      <a href="#packing">Packing</a>
+      <a href="#account">Account</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow light-eyebrow">YOUR NEXT ADVENTURE STARTS HERE</span>
+        <h1>Explore more.<br><span>Worry less.</span></h1>
+        <p>Discover destinations, plan your itinerary, organize your packing, and explore travel options in one place.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#planner">Plan your trip</a>
+          <a class="btn-outline" href="#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="hero-badge">
+        <span>🌍</span>
+        <div><strong>Make memories</strong><small>One journey at a time</small></div>
+      </div>
+    </section>
+
+    <!-- DESTINATIONS -->
+    <section class="section" id="destinations">
+      <div class="section-heading">
+        <span class="eyebrow">GET INSPIRED</span>
+        <h2>Popular destinations</h2>
+        <p>Choose a destination to start planning your next trip.</p>
+      </div>
+      <div class="destination-grid">
+        <button class="destination-card" type="button" data-destination="New York, USA">
+          <img src="https://images.unsplash.com/photo-149 NYC?auto=format&fit=crop&w=900&q=80" alt="New York skyline" onerror="this.src='https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=900&q=80'">
+          <span class="destination-overlay"><strong>New York</strong><small>USA</small></span>
+        </button>
+        <button class="destination-card" type="button" data-destination="Paris, France">
+          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80" alt="Eiffel Tower in Paris">
+          <span class="destination-overlay"><strong>Paris</strong><small>France</small></span>
+        </button>
+        <button class="destination-card" type="button" data-destination="Kyoto, Japan">
+          <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=900&q=80" alt="Traditional street in Kyoto">
+          <span class="destination-overlay"><strong>Kyoto</strong><small>Japan</small></span>
+        </button>
+        <button class="destination-card" type="button" data-destination="Bali, Indonesia">
+          <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=80" alt="Bali tropical landscape">
+          <span class="destination-overlay"><strong>Bali</strong><small>Indonesia</small></span>
+        </button>
+        <button class="destination-card" type="button" data-destination="London, UK">
+          <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&q=80" alt="London cityscape">
+          <span class="destination-overlay"><strong>London</strong><small>United Kingdom</small></span>
+        </button>
+        <button class="destination-card" type="button" data-destination="Rome, Italy">
+          <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=900&q=80" alt="Colosseum in Rome">
+          <span class="destination-overlay"><strong>Rome</strong><small>Italy</small></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- PLANNER -->
+    <section class="section soft-section" id="planner">
+      <div class="section-heading">
+        <span class="eyebrow">BUILD YOUR JOURNEY</span>
+        <h2>Plan your trip</h2>
+        <p>Enter your travel details and create a sample itinerary.</p>
+      </div>
+      <div class="planner-panel">
+        <form id="travel-form">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="destination">Destination</label>
+              <input id="destination" list="destination-options" placeholder="Where do you want to go?" required maxlength="100">
+              <datalist id="destination-options">
+                <option value="New York, USA"></option><option value="Paris, France"></option>
+                <option value="Kyoto, Japan"></option><option value="Bali, Indonesia"></option>
+                <option value="London, UK"></option><option value="Rome, Italy"></option>
+              </datalist>
+            </div>
+            <div class="form-field">
+              <label for="travelers">Travelers</label>
+              <select id="travelers">
+                <option value="1">1 traveler</option><option value="2">2 travelers</option>
+                <option value="3">3 travelers</option><option value="4">4 travelers</option>
+                <option value="5">5 travelers</option><option value="6">6 travelers</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="start-date">Departure date</label>
+              <input type="date" id="start-date" required>
+            </div>
+            <div class="form-field">
+              <label for="return-date">Return date</label>
+              <input type="date" id="return-date" required>
+            </div>
+            <div class="form-field">
+              <label for="travel-style">Travel style</label>
+              <select id="travel-style">
+                <option value="Relaxed">Relaxed</option><option value="Adventure">Adventure</option>
+                <option value="Cultural">Cultural</option><option value="Foodie">Foodie</option>
+                <option value="Family">Family</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="budget">Estimated budget (₹)</label>
+              <input type="number" id="budget" min="0" step="500" placeholder="e.g. 30000" required>
+            </div>
+          </div>
+          <button class="btn-primary full-button" type="submit">Create my itinerary</button>
+        </form>
+        <div id="trip-result" class="trip-result" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- FLIGHT AND HOTEL SEARCH -->
+    <section class="section" id="booking">
+      <div class="section-heading">
+        <span class="eyebrow">PLAN YOUR JOURNEY</span>
+        <h2>Find flights & hotels</h2>
+        <p>Browse illustrative travel options. These are demo results, not live availability or booking offers.</p>
+      </div>
+      <div class="booking-panel">
+        <div class="booking-tabs">
+          <button type="button" class="booking-tab active" data-booking-tab="flights">✈ Flights</button>
+          <button type="button" class="booking-tab" data-booking-tab="hotels">🏨 Hotels</button>
+        </div>
+
+        <form id="flight-search-form" class="booking-form">
+          <h3>Search flights</h3>
+          <div class="booking-grid">
+            <div><label for="flight-from">From</label><input id="flight-from" type="text" placeholder="e.g. Delhi" required maxlength="80"></div>
+            <div><label for="flight-to">To</label><input id="flight-to" type="text" placeholder="e.g. Bali" required maxlength="80"></div>
+            <div><label for="flight-departure">Departure</label><input id="flight-departure" type="date" required></div>
+            <div><label for="flight-return">Return (optional)</label><input id="flight-return" type="date"></div>
+            <div><label for="flight-passengers">Passengers</label>
+              <select id="flight-passengers">
+                <option value="1">1 passenger</option><option value="2">2 passengers</option>
+                <option value="3">3 passengers</option><option value="4">4 passengers</option>
+                <option value="5">5 passengers</option><option value="6">6 passengers</option>
+              </select>
+            </div>
+            <div><label for="flight-class">Class</label>
+              <select id="flight-class"><option>Economy</option><option>Premium Economy</option><option>Business</option><option>First Class</option></select>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary booking-search-button">Search flights</button>
+        </form>
+
+        <form id="hotel-search-form" class="booking-form hidden">
+          <h3>Search hotels</h3>
+          <div class="booking-grid">
+            <div><label for="hotel-destination">Destination</label><input id="hotel-destination" type="text" placeholder="e.g. Paris" required maxlength="80"></div>
+            <div><label for="hotel-checkin">Check-in</label><input id="hotel-checkin" type="date" required></div>
+            <div><label for="hotel-checkout">Check-out</label><input id="hotel-checkout" type="date" required></div>
+            <div><label for="hotel-guests">Guests</label>
+              <select id="hotel-guests"><option value="1">1 guest</option><option value="2">2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option><option value="5">5 guests</option><option value="6">6 guests</option></select>
+            </div>
+            <div><label for="hotel-rooms">Rooms</label>
+              <select id="hotel-rooms"><option value="1">1 room</option><option value="2">2 rooms</option><option value="3">3 rooms</option><option value="4">4 rooms</option></select>
+            </div>
+            <div><label for="hotel-budget">Nightly budget</label>
+              <select id="hotel-budget"><option value="any">Any budget</option><option value="budget">Budget</option><option value="midrange">Mid-range</option><option value="luxury">Luxury</option></select>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary booking-search-button">Search hotels</button>
+        </form>
+      </div>
+      <div id="booking-results" class="booking-results" aria-live="polite">
+        <div class="booking-placeholder"><span class="booking-placeholder-icon">🌍</span><h3>Your next journey starts here</h3><p>Enter your travel details above to view sample options.</p></div>
+      </div>
+    </section>
+
+    <!-- SAVED TRIPS -->
+    <section class="section soft-section" id="saved-trips">
+      <div class="section-heading">
+        <span class="eyebrow">YOUR TRAVEL COLLECTION</span>
+        <h2>Saved trips <span class="count-badge" id="saved-trip-count">0</span></h2>
+        <p>Revisit the travel plans you have saved in this browser.</p>
+      </div>
+      <div class="saved-toolbar">
+        <button class="btn-secondary" id="refresh-saved-trips" type="button">Refresh trips</button>
+      </div>
+      <div id="saved-trips-list" class="saved-trips-grid"></div>
+      <p id="saved-trips-empty" class="empty-state">You haven't saved any trips yet. Create an itinerary above.</p>
+    </section>
+
+    <!-- PACKING CHECKLIST -->
+    <section class="section" id="packing">
+      <div class="section-heading">
+        <span class="eyebrow">BE READY TO GO</span>
+        <h2>Your packing checklist</h2>
+        <p>Choose a saved trip, add your essentials, and check them off as you pack.</p>
+      </div>
+      <div class="packing-panel">
+        <label for="packing-trip">Select a saved trip</label>
+        <select id="packing-trip"><option value="">Choose a trip</option></select>
+        <form id="packing-form" class="packing-add-form">
+          <label for="packing-item">Add an item</label>
+          <div class="packing-input-row">
+            <input id="packing-item" type="text" placeholder="e.g. Passport, charger, clothes" maxlength="80" required>
+            <button type="submit" class="btn-primary">Add item</button>
+          </div>
+        </form>
+        <div class="packing-progress">
+          <span id="packing-progress-text">Choose a trip to begin</span>
+          <div class="packing-progress-track"><div id="packing-progress-bar" class="packing-progress-bar"></div></div>
+        </div>
+        <ul id="packing-list" class="packing-list"></ul>
+        <p id="packing-empty" class="packing-empty">Select a saved trip to see its checklist.</p>
+      </div>
+    </section>
+
+    <!-- ACCOUNT -->
+    <section class="section soft-section" id="account">
+      <div class="section-heading">
+        <span class="eyebrow">YOUR TRAVEL SPACE</span>
+        <h2>Account & profile</h2>
+        <p>A local demo account interface for your travel planner.</p>
+      </div>
+      <div class="account-panel">
+        <div id="account-forms">
+          <div class="account-tabs">
+            <button type="button" class="account-tab active" data-account-tab="login">Login</button>
+            <button type="button" class="account-tab" data-account-tab="signup">Create account</button>
+          </div>
+          <form id="login-form" class="account-form">
+            <h3>Welcome back</h3>
+            <label for="login-email">Email address</label>
+            <input id="login-email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            <label for="login-password">Demo password</label>
+            <input id="login-password" type="password" autocomplete="current-password" placeholder="At least 4 characters" required minlength="4">
+            <button type="submit" class="btn-primary">Log in</button>
+            <p class="account-note">Demo only: this does not verify credentials or provide secure authentication. Do not use a real password.</p>
+          </form>
+          <form id="signup-form" class="account-form hidden">
+            <h3>Create your demo profile</h3>
+            <label for="signup-name">Your name</label>
+            <input id="signup-name" type="text" autocomplete="name" placeholder="Your name" maxlength="60" required>
+            <label for="signup-email">Email address</label>
+            <input id="signup-email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            <label for="signup-password">Demo password</label>
+            <input id="signup-password" type="password" autocomplete="new-password" placeholder="At least 4 characters" minlength="4" required>
+            <button type="submit" class="btn-primary">Create profile</button>
+            <p class="account-note">This demo stores only your name and email in this browser. Your password is not saved.</p>
+          </form>
+        </div>
+        <div id="profile-view" class="profile-view hidden">
+          <div class="profile-avatar" id="profile-avatar">T</div>
+          <h3 id="profile-name">Traveler</h3>
+          <p id="profile-email"></p>
+          <p class="profile-description">Your demo travel profile is ready. Your saved trips are stored in this browser.</p>
+          <button type="button" id="logout-button" class="btn-secondary">Log out</button>
+        </div>
+        <p id="account-message" class="account-message" role="status"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#home">✈ WanderWise</a>
+    <p>Plan thoughtfully. Travel happily.</p>
+    <small>© <span id="current-year"></span> WanderWise. Frontend demo project.</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
